@@ -5,10 +5,22 @@ function getPasswords(){
     passwords = JSON.parse(localStorage.getItem("passwords"))
 }
 
+function deletePassword(element){
+    elements = document.getElementById('passwords').getElementsByTagName("p")
+    for (i = 0; i < elements.length; i++){
+        if (elements[i] == element){
+            passwords.splice(i,1)
+            storePasswords()
+            displayPasswords()
+            return
+        }
+    }
+}
+
 function displayPasswords(){
     document.getElementById('passwords').innerHTML = ''
     for(i = 0; i < passwords.length; i++){
-        document.getElementById("passwords").innerHTML += "<p>"+passwords[i]+"</p>"
+        document.getElementById("passwords").innerHTML += "<p><span onclick='deletePassword(this.parentElement)'>🗑️</span>&nbsp;&nbsp;"+passwords[i]+"</p>"
     }
 
     // from https://www.codegrepper.com/code-examples/javascript/javascript+scroll+to+bottom+of+div
@@ -30,6 +42,9 @@ function clearStorage(){
 
 function customPassword(){
     password = document.getElementById('custom').value
+    if (password == ''){
+        return
+    }
     document.getElementById('custom').value = ""
     passwords.push(password)
     storePasswords()
