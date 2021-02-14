@@ -51,3 +51,6 @@ input{
     border-radius: 3px;
     outline: none;
 }
+#passwords span{
+    cursor: pointer;
+}

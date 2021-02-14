@@ -17,6 +17,16 @@ function deletePassword(element){
     }
 }
 
+function copyPassword(element){
+    toCopy = element.innerText.slice(9)
+    el = document.createElement('textarea');
+    el.value = toCopy;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+}
+
 function logPassword(password){
     passwords.push(password)
     storePasswords()
@@ -26,7 +36,7 @@ function logPassword(password){
 function displayPasswords(){
     document.getElementById('passwords').innerHTML = ''
     for(i = 0; i < passwords.length; i++){
-        document.getElementById("passwords").innerHTML += "<p><span onclick='deletePassword(this.parentElement)'>🗑️</span>&nbsp;&nbsp;"+passwords[i]+"</p>"
+        document.getElementById("passwords").innerHTML += "<p><span onclick='deletePassword(this.parentElement)'>🗑️</span>&nbsp;&nbsp<span onclick='copyPassword(this.parentElement)'>📋</span>&nbsp;&nbsp;"+passwords[i]+"</p>"
     }
 
     // from https://www.codegrepper.com/code-examples/javascript/javascript+scroll+to+bottom+of+div
