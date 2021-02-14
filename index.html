@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Password Generator</title>
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Password Manager</h1>
+            <h3>This password manager is designed to generate passwords, and keep track of them for you. <br>
+                Everything is open source on GitHub, and passwords are kept in local storage, so you have no need to worry about security issues.
+            </h3>
+        </div>
+        
+        <div class="main">
+            <div class="options">
+                <table>
+                    <tr>
+                        <td><label>Include Uppercase</label></td>
+                        <td><input type="checkbox" id="upper" checked></td>
+                    </tr>
+                    <tr>
+                        <td><label>Include Lowercase</label></td>
+                        <td><input type="checkbox" id="lower" checked></td>
+                    </tr>
+                    <tr>
+                        <td><label>Include Numbers</label></td>
+                        <td><input type="checkbox" id="numbers" checked></td>
+                    </tr>
+                    <tr>
+                        <td><label>Exclude Duplicates</label></td>
+                        <td><input type="checkbox" id="duplicates"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Include Symbols</label></td>
+                        <td><input type="checkbox" id="symbols"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Length:</label></td>
+                        <td><input onchange="validateLength()" type="text" id="length" value="25"></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="text" id="custom">
+                <button onclick="customPassword()">Enter custom password</button>
+                <br>
+                <button onclick="generatePassword()">Go!</button>
+                <button onclick="clearStorage()">Clear Storage</button>
+            </div>
+            <div id="passwords"></div>
+        </div>
+        
+    </body>
+    <script>githubCorner()</script>
+    <script>getPasswords()</script>
+    <script>displayPasswords()</script>
+</html>

@@ -1,0 +1,53 @@
+*{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* highlights */
+::selection{
+    background: lightgrey;
+    color: black;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: grey; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: lightslategrey; 
+}
+
+
+body{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+table{
+    font-size: 20px;
+}
+.options{
+    flex: 1;
+}
+#passwords{
+    flex: 1;
+    height: 400px;
+    overflow-y: scroll;
+}
+#length{
+    width: 75px;
+}
+input{
+    border: 1px solid black;
+    border-radius: 3px;
+    outline: none;
+}
