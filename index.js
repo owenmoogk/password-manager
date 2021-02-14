@@ -17,6 +17,12 @@ function deletePassword(element){
     }
 }
 
+function logPassword(password){
+    passwords.push(password)
+    storePasswords()
+    displayPasswords()
+}
+
 function displayPasswords(){
     document.getElementById('passwords').innerHTML = ''
     for(i = 0; i < passwords.length; i++){
@@ -46,9 +52,7 @@ function customPassword(){
         return
     }
     document.getElementById('custom').value = ""
-    passwords.push(password)
-    storePasswords()
-    displayPasswords()
+    logPassword(password)
 }
 
 function githubCorner(){
@@ -95,14 +99,11 @@ function generatePassword(){
     for (i = 0; i < length; i++){
         num = getRandomInt(0, arrayOfPossibilities.length-1)
         password += arrayOfPossibilities[num]
-        console.log(arrayOfPossibilities)
         if (noDuplicates){
             arrayOfPossibilities.splice(num,1)
         }
     }
-    passwords.push(password)
-    storePasswords()
-    displayPasswords()
+    logPassword(password)
 }
 
 function validateLength(){
