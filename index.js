@@ -69,21 +69,21 @@ function generatePassword(){
             arrayOfPossibilities.push(String.fromCharCode(i))
         }
     }
-    if (document.getElementById('duplicates').checked && arrayOfPossibilities.length > length){
+    if (document.getElementById('duplicates').checked && arrayOfPossibilities.length < length){
         document.getElementById("length").style.border = "2px solid red"
         return
     }
-    
+    noDuplicates = document.getElementById('duplicates').checked
+
     // main part
     password = ""
     for (i = 0; i < length; i++){
-        num = getRandomInt(0, arrayOfPossibilities.length -1)
-        for (i = 0; i < password.length; i++){
-            if (password[i] == arrayOfPossibilities){
-                
-            }
-        }
+        num = getRandomInt(0, arrayOfPossibilities.length-1)
         password += arrayOfPossibilities[num]
+        console.log(arrayOfPossibilities)
+        if (noDuplicates){
+            arrayOfPossibilities.splice(num,1)
+        }
     }
     passwords.push(password)
     storePasswords()
