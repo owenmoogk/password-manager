@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="index.css">
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
         <script src="index.js"></script>
+        <script src="csv.js"></script>
+        <script src="githubCorner.js"></script>
     </head>
     <body>
         <div class="header">
@@ -47,6 +49,8 @@
                 <br>
                 <button onclick="generatePassword()">Go!</button>
                 <button onclick="clearStorage()">Clear Storage</button>
+                <br><br>
+                <button onclick="downloadCSV()">Download Saved Passwords</button>
             </div>
             <div id="passwords"></div>
         </div>

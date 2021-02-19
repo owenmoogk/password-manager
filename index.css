@@ -13,10 +13,10 @@
     width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background: grey; 
+    background: rgba(130, 130, 130, 0.5); 
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: lightslategrey; 
+    background: rgba(110, 110, 110, 0.5); 
 }
 
 
